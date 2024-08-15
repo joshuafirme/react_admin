@@ -6,9 +6,9 @@
 
     <a href="/" class="brand-link">
 
-      <img src="/images/logo.png" alt="{{ config('app.name', 'Laravel') }} Logo" class="brand-image" style="opacity: .8">
+      <img src="{{asset(settings()->logo)}}" alt="{{ settings()->logo }} Logo" class="brand-image" style="opacity: .8">
 
-      <span class="brand-text font-weight-light"><small>{{ config('app.name', 'Laravel') }}</small></span>
+      <span class="brand-text font-weight-light"><small>{{ settings()->app_name }}</small></span>
 
     </a>
 
