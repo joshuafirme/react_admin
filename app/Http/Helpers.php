@@ -41,6 +41,12 @@ if (! function_exists('settings')) {
         if (Storage::disk('public')->exists($file)) {
             $data = json_decode(\Storage::disk('public')->get($file));
         }
+        else {
+            $data = json_encode([
+                'app_name' => 'Your app name',
+                'logo' => '',
+            ]);
+        }
         return $data;
     }
 }

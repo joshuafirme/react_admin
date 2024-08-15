@@ -24,8 +24,19 @@ class SettingsController extends Controller
         $logo_path = null;
         
         $data = [];
+        $old_data = [];
 
-        $data['app_name'] = $request->app_name;
+        if (Storage::disk('public')->exists($this->file)) {
+            $old_data = json_decode(Storage::disk('public')->get($this->file), true);
+            $data['app_name'] = $old_data['app_name'];
+            $data['logo'] = $old_data['logo'];
+        }
+
+
+
+        if ($request->app_name) {
+            $data['app_name'] = $request->app_name;
+        }
 
         if ($request['logo']) {
             $folder = "settings/logo/";
