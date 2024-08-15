@@ -73,7 +73,7 @@
                         </div><br><br>
                         <div class="form-group row mb-0">
                             <div class="col-md-5 offset-md-4">
-                                <a href="https://incidentapp.sassy.ph/apk/demoapp.apk" class="btn btn-success btn-block">
+                                <a href="{{ url('apk/incident_app_demo.apk') }}" class="btn btn-success btn-block">
                                     {{ __('Download Demo') }}
                                 </a>
                             </div>
