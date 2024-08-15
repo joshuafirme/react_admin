@@ -6,89 +6,89 @@ use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| Api Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
+| Here is where you can register Api routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| is assigned the "Api" middleware group. Enjoy building your Api!
 |
 */
 
 //Route::group([
-//	'middleware' => ['api','cors','throttle:60,1'],
-//	'prefix' => 'api',
+//	'middleware' => ['Api','cors','throttle:60,1'],
+//	'prefix' => 'Api',
 //], function($router){
 //   Route::get('/test', 'UsersController@test');
 //});
 
 Route::group([ 'prefix' => 'auth'], function (){ 
-    Route::group(['middleware' => ['guest:api','throttle:60,1']], function () {
-        Route::post('login', 'API\AuthController@login');
-        Route::post('signup', 'API\AuthController@signup');
-        Route::post('getCodeSMS', 'API\AuthController@getCodeEmail');
-        Route::post('verifyNumber', 'API\AuthController@verifyNumber');
-        Route::post('uploadProfilePhoto', 'API\AuthController@uploadProfilePhoto');
+    Route::group(['middleware' => ['guest:Api','throttle:60,1']], function () {
+        Route::post('login', 'Api\AuthController@login');
+        Route::post('signup', 'Api\AuthController@signup');
+        Route::post('getCodeSMS', 'Api\AuthController@getCodeEmail');
+        Route::post('verifyNumber', 'Api\AuthController@verifyNumber');
+        Route::post('uploadProfilePhoto', 'Api\AuthController@uploadProfilePhoto');
     });
 });  
 
-Route::get('settings', 'API\SettingsControllerApi@settings');
+Route::get('settings', 'Api\SettingsControllerApi@settings');
 
-Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('getReportInfo/{id}', 'API\IncidentController@getReportInfo');
+Route::group(['middleware' => 'auth:Api'], function() {
+    Route::get('getReportInfo/{id}', 'Api\IncidentController@getReportInfo');
 
-    Route::get('logout', 'API\AuthController@logout');
+    Route::get('logout', 'Api\AuthController@logout');
     
-    Route::get('getuser', 'API\AuthController@getUser');
+    Route::get('getuser', 'Api\AuthController@getUser');
     
-    Route::post('createReport', 'API\IncidentController@createReport');
+    Route::post('createReport', 'Api\IncidentController@createReport');
 
     
-    Route::post('updateLogData', 'API\IncidentController@updateLogData');
+    Route::post('updateLogData', 'Api\IncidentController@updateLogData');
     
-    Route::post('getUserInfo', 'API\IncidentController@getUserInfo');
+    Route::post('getUserInfo', 'Api\IncidentController@getUserInfo');
 
-    Route::post('getLogData', 'API\IncidentController@getLogData');
+    Route::post('getLogData', 'Api\IncidentController@getLogData');
     
-    Route::get('getAnnouncements', 'API\AdvertisementController@getAnnouncements');
+    Route::get('getAnnouncements', 'Api\AdvertisementController@getAnnouncements');
 
-    Route::post('getDropOffPoints', 'API\IncidentController@getDropOffPoints');
+    Route::post('getDropOffPoints', 'Api\IncidentController@getDropOffPoints');
 
-    Route::post('getUsers', 'API\AuthController@getUsers');
+    Route::post('getUsers', 'Api\AuthController@getUsers');
     
-    Route::get('check_user', 'API\AuthController@check_user');
+    Route::get('check_user', 'Api\AuthController@check_user');
     
-    Route::get('getPopulatedData', 'API\IncidentController@getPopulatedData');
+    Route::get('getPopulatedData', 'Api\IncidentController@getPopulatedData');
     
-    Route::get('getProfileInfoByUserId/{id}', 'API\ProfileController@getProfileInfoByUserId');
+    Route::get('getProfileInfoByUserId/{id}', 'Api\ProfileController@getProfileInfoByUserId');
     
-    Route::get('getNotificationByUserId/{id}', 'API\ConversationsController@getNotificationByUserId');
-    Route::get('getConversationsByUserId', 'API\ConversationsController@getConversationsByUserId');
+    Route::get('getNotificationByUserId/{id}', 'Api\ConversationsController@getNotificationByUserId');
+    Route::get('getConversationsByUserId', 'Api\ConversationsController@getConversationsByUserId');
     
-    Route::get('checkIfTyping/{id}', 'API\ConversationsController@checkIfTyping');
+    Route::get('checkIfTyping/{id}', 'Api\ConversationsController@checkIfTyping');
     
-    Route::get('getAboutApp', 'API\AuthController@getAboutApp');
+    Route::get('getAboutApp', 'Api\AuthController@getAboutApp');
     
-    Route::post('searchUsers', 'API\ConversationsController@searchUsers');
+    Route::post('searchUsers', 'Api\ConversationsController@searchUsers');
     
-    Route::post('getPendingRequest', 'API\ConversationsController@getPendingRequest');
+    Route::post('getPendingRequest', 'Api\ConversationsController@getPendingRequest');
     
     
-    Route::post('getFriendsByUserId', 'API\ConversationsController@getFriendsByUserId');
+    Route::post('getFriendsByUserId', 'Api\ConversationsController@getFriendsByUserId');
     
-    Route::post('sendRequest', 'API\ConversationsController@sendRequest');
-    Route::post('acceptRequest', 'API\ConversationsController@acceptRequest');
+    Route::post('sendRequest', 'Api\ConversationsController@sendRequest');
+    Route::post('acceptRequest', 'Api\ConversationsController@acceptRequest');
     
-    Route::post('getConversationById', 'API\ConversationsController@getConversationById');
-    Route::post('addReply', 'API\ConversationsController@addReply');
+    Route::post('getConversationById', 'Api\ConversationsController@getConversationById');
+    Route::post('addReply', 'Api\ConversationsController@addReply');
     
     //gps admin
-    Route::post('saveSignature', 'API\IncidentController@saveSignature');
+    Route::post('saveSignature', 'Api\IncidentController@saveSignature');
     
-    Route::post('uploadSignatureFiles', 'API\IncidentController@uploadSignatureFiles');
+    Route::post('uploadSignatureFiles', 'Api\IncidentController@uploadSignatureFiles');
 
     //incident app
-    Route::post('uploadReportFiles', 'API\AuthController@uploadReportFiles');
-    Route::get('getReportById/{id}', 'API\AuthController@getReportById');
+    Route::post('uploadReportFiles', 'Api\AuthController@uploadReportFiles');
+    Route::get('getReportById/{id}', 'Api\AuthController@getReportById');
     
 });
