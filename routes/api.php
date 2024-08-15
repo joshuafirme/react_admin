@@ -32,10 +32,10 @@ Route::group([ 'prefix' => 'auth'], function (){
     });
 });  
 
+Route::get('getReportInfo/{id}', 'API\IncidentController@getReportInfo');
 Route::get('settings', 'API\SettingsControllerApi@settings');
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('getReportInfo/{id}', 'API\IncidentController@getReportInfo');
 
     Route::get('logout', 'API\AuthController@logout');
     
