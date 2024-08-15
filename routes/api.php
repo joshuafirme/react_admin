@@ -22,6 +22,8 @@ use Illuminate\Http\Request;
 //   Route::get('/test', 'UsersController@test');
 //});
 
+use App\Http\Controllers\API\IncidentController;
+
 Route::group([ 'prefix' => 'auth'], function (){ 
     Route::group(['middleware' => ['guest:api','throttle:60,1']], function () {
         Route::post('login', 'API\AuthController@login');
@@ -32,7 +34,7 @@ Route::group([ 'prefix' => 'auth'], function (){
     });
 });  
 
-Route::get('getReportInfo/{id}', 'API\IncidentController@getReportInfo');
+Route::get('getReportInfo/{id}', [IncidentController::class, 'getReportInfo']);
 Route::get('settings', 'API\SettingsControllerApi@settings');
 
 Route::group(['middleware' => 'auth:api'], function() {
