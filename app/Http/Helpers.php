@@ -33,4 +33,17 @@ if (! function_exists('getCount')) {
     }
 }
 
+if (! function_exists('settings')) {
+    function settings()
+    {
+        $data = null;
+        $file = "settings.json";
+        if (Storage::disk('public')->exists($file)) {
+            $data = json_decode(\Storage::disk('public')->get($file));
+        }
+        return $data;
+    }
+}
+
+
 ?>

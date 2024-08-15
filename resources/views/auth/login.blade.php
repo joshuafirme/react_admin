@@ -1,5 +1,7 @@
 @extends('layouts.app')
+@php
 
+@endphp
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,9 +16,9 @@
                         <div class="form-group row">
 
                             <div class="col-md-5 offset-md-4">
-                                <h2 style="color:#f15a22;text-align:center;">{{ config('app.name', 'Laravel') }}</h2>
+                                <h2 style="color:#f15a22;text-align:center;">{{ settings()->app_name }}</h2>
                                 <!-- <h6 style="color:#f15a22;text-align:center;"> Community Awareness for Resiliency, Efficiency & Safety</h6> -->
-                                <img style="width:100%" src="{{ asset('images/your-logo.png') }}">
+                                <img style="width:100%" src="{{ asset(settings()->logo) }}" class="mb-4">
                                 <input id="email" type="email"  placeholder="Email Address/Username" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
