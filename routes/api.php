@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('getProfileInfoByUserId/{id}', 'API\ProfileController@getProfileInfoByUserId');
     
     Route::get('getNotificationByUserId/{id}', 'API\ConversationsController@getNotificationByUserId');
-    Route::post('getConversationsByUserId', 'API\ConversationsController@getConversationsByUserId');
+    Route::get('getConversationsByUserId', 'API\ConversationsController@getConversationsByUserId');
     
     Route::get('checkIfTyping/{id}', 'API\ConversationsController@checkIfTyping');
     

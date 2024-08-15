@@ -43,7 +43,7 @@ class ConversationsController extends ResponseController
     public function getConversationsByUserId(Request $request){
         
         $input = $request;
-        $id = $input['auth_id'];
+        $id = $input['user_id'];
         $userData = array();
         $user = Conversations::where('user_id_01',$id)->get();
         $isConversationIDExist = array();

@@ -54,6 +54,7 @@ class IncidentController extends ResponseController
             $logdetails->agency_id = isset($input['agency_id']) ? $input['agency_id'] : 0;
             $logdetails->qty_dropped = 0;
             $logdetails->qty_remainings = 0;
+            $logdetails->brgy =  $input['brgy'];
             $logdetails->remarks =  $input['remarks'];
             $logdetails->attachment =  $path;
             $logdetails->signature =  "Open";

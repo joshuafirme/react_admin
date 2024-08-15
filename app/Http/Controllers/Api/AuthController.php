@@ -104,6 +104,26 @@ class AuthController extends ResponseController
         
         $response['username'] =  $user->username;
         $response['fullname'] =  $user->firstname . ' ' . $user->lastname;
+
+        $convo_count = Conversations::where('user_id_01', $user->id)->count();
+        if ($convo_count < 1) {
+            $convo = new Conversations();
+            $convo->user_id_01 = $user->id;
+            $convo->user_id_02 = 1;
+            $convo->message = "";
+            $convo->ip = "127.0.0.1";
+            $convo->save();
+
+            #create first conversation reply 1st user
+            $fullname = $user['firstname'] . " " . $user['lastname'];
+            $convoReply = new ConversationReplies();
+            $convoReply->reply = 'You are connected now with the administrator';
+            $convoReply->user_id_fk = $convo->user_id_01;
+            $convoReply->ip = '127.0.0.1'; 
+            $convoReply->c_id_fk = $convo->id;
+            $convoReply->save();
+        }
+        
         return $this->sendResponse($response);
     }
 

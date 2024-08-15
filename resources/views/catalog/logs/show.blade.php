@@ -69,6 +69,7 @@
                     <p class="card-text">Assigned to: {{ count($logs->agencies) > 0 ? $logs->agencies[0]->agency_name : "N/A" }}</p>
                     <p class="card-text">Category: {{ count($logs->categories) > 0? $logs->categories[0]->category_name  : "N/A" }}</p>
                     <p class="card-text">Current Status: {{ $logs->signature }}</p>
+                    <p class="card-text">Barangay: {{ $logs->brgy }}</p>
                     <p class="card-text">Nearest Location: {{ $logs->drop_off_points }}</p>
                     
                   
