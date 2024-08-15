@@ -22,6 +22,11 @@ class SettingsController extends Controller
     public function update(Request $request)
     {
         $logo_path = null;
+        
+        $data = [];
+
+        $data['app_name'] = $request->app_name;
+
         if ($request['logo']) {
             $folder = "settings/logo/";
             $origName = pathinfo($request['logo']->getClientOriginalName(), PATHINFO_FILENAME);
@@ -29,12 +34,9 @@ class SettingsController extends Controller
             
             $request['logo']->move(public_path($folder), $file_name);
             $logo_path = $folder . $file_name;
+            $data['logo'] = $logo_path;
         }
 
-        $data = [];
-
-        $data['app_name'] = $request->app_name;
-        $data['logo'] = $logo_path;
 
         Storage::disk('public')->put($this->file, json_encode($data));
 
