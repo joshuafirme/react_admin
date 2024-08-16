@@ -106,9 +106,8 @@
                     <p class="card-text">Status to: 
                     <select class="form-control" id="status" name="signature">
                     <option class="bg-danger" value="Open" <?php echo ($logs->signature == "Open") ? "selected" : "" ?>>Open</option>
-                    <option class="bg-dark" value="Closed" <?php echo ($logs->signature == "Closed") ? "selected" : "" ?>>Closed</option>
-                    <option class="bg-warning" value="In Progress" <?php echo ($logs->signature == "In Progress") ? "selected" : "" ?>>In Progress</option>
-                    <option class="bg-secondary" value="Cancelled" <?php echo ($logs->signature == "Cancelled") ? "selected" : "" ?>>Cancelled</option>
+                    <option class="bg-dark" value="Dispatched" <?php echo ($logs->signature == "Dispatched") ? "selected" : "" ?>>Dispatched</option>
+                   
                     </select></p>
                     <a id="btn-change" data-id="{{ $logs->id }}" href="#" class="btn btn-warning btn-block">CHANGE</a>
                     </div>
