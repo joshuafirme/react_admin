@@ -110,13 +110,15 @@
                               @case('Open')
                                   <p class="bg-danger text-center"> {{ $data['signature'] }}</p>
                                   @break
-
-                              @case('Closed')
+                                  @case('Dispatched')
                                   <p class="bg-dark text-center"> {{ $data['signature'] }}</p>
+                                  @break
+                              @case('Closed')
+                                  <p class="bg-dark text-center"> Dispatched</p>
                                   @break
 
                               @case('In Progress')
-                                  <p class="bg-warning text-center"> {{ $data['signature'] }}</p>
+                                  <p class="bg-warning text-center"> Dispatched</p>
                                   @break
                               
                               @case('Cancelled')

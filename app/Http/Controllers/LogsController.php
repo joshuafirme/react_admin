@@ -341,6 +341,11 @@ class LogsController extends Controller
                     $user = User::find($x->user_id);
                     $nestedData['reported_by'] = isset($user) ? $user['username'] : "N/A";
                     $nestedData['assigned_department'] = count($x->agencies) > 0 ? $x->agencies[0]->agency_name : "N/A";
+
+                    if ($x->signature == 'Closed' || $x->signature == 'In Progress') {
+                        $x->signature = "Dispatched";
+                    }
+
                     $nestedData['status'] = $x->signature;
                     $nestedData['description'] = $x->remarks;
                     
